@@ -1,0 +1,30 @@
+{% extends 'portfolio/index.html' %}
+
+{% block title %}Blog{% endblock %}
+
+
+{% block content %}
+
+        <!-- projects cards -->
+        <div class="container">
+            <div class="row my-4">
+                {% for post in posts %}
+                    <div class="col-md-6 col-lg-4" height=300px>
+                        <div class="card h-100">
+                            {% if post.image %}
+                                <img src="{{post.image.url}}" class="card-img-top" alt="{{post.title}}" height="161" width="287">
+                            {% endif %}
+                            <div class="card-body">
+                                <a href="{% url 'blog:detail' post.id %}">
+                                    <h3 class="card-title">{{post.title}}</h3>
+                                </a>
+                                <p class="card-text">{{post.post|truncatewords:50}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+
+{% endblock %}

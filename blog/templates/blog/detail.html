@@ -1,0 +1,10 @@
+{% extends 'portfolio/index.html' %}
+
+{% block title %}{{post.title}}{% endblock %}
+
+
+{% block content %}
+<h1>{{post.title}}</h1>
+<img src="{{post.id.url}}">
+<p>{{post.post}}</p>
+{% endblock %}

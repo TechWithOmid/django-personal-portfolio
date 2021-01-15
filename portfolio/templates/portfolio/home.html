@@ -1,0 +1,51 @@
+{% extends 'portfolio/index.html' %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+    <!-- Header Section | jumbotron -->
+    <div class="jumbotron jumbotron-fluid bg-info text-white">
+        <div class="container">
+            <h1 class="display-1">Omid Portfolio</h1>
+            <p>I'm Omid mohammadi, Python, Django Developer and Linux User.</p>
+        </div>
+    </div>
+
+    <!-- about card -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12"></div>
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">About me</h2>
+                        <p class="card-text">
+                            My name is Omid mohammadi <br>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit inventore voluptate recusandae reprehenderit officia, aliquid, illum, totam facilis possimus quas eaque. Itaque magnam et nemo eos suscipit quod quasi nisi. 
+                            <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel tempore fuga soluta, corporis distinctio maxime atque id dolore laboriosam repudiandae ab dicta pariatur assumenda, perferendis tempora fugit nihil! Soluta, exercitationem.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- projects cards -->
+    <div class="container">
+        <div class="row my-4">
+            {% for project in projects %}
+            <div class="col-md-6 col-lg-4" height=300px>
+                <div class="card h-100">
+                    <img src="{{project.image.url}}" class="card-img-top" alt="{{project.title}}" height="161" width="287">
+                    <div class="card-body">
+                        <h3 class="card-title">{{project.title}}</h3>
+                        <p class="card-text">{{project.description}}</p>
+                        {% if project.url %}
+                        <a href="{{project.url}}" class="btn btn-primary" target="_blank">link</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
